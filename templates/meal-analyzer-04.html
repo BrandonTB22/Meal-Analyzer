@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Meal Analyzer</title>
+    <link href="../static/css/meal-analyzer-04.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI Meal Analyzer</h1>
+      <h3>
+        Upload a meal image to AI to get preparation instructions, calorie
+        counts and macronutrients (gms carbs, fat, protein)
+      </h3>
+
+      <input
+        type="file"
+        accept="image/png, image/jpg, image/jpeg, image/webp, image/gif"
+      />
+      <button>Analyze</button>
+      <div id="spinner-wrapper">
+        <div class="spinner"></div>
+        <p>Analyzing Meal</p>
+      </div>
+      <img id="uploaded-img" src="" />
+      <h3 id="meal-name">Meal</h3>
+      <p id="description">Description:</p>
+      <p id="calories-count">Calories:</p>
+      <p id="grams">Macronutrients</p>
+    </div>
+    <script src="../static/js/meal-analyzer-04.js"></script>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --ink: #25302b;
+  --muted: #6d766e;
+  --paper: #fffdf8;
+  --canvas: #edf1e9;
+  --sage: #667d68;
+  --sage-dark: #415a47;
+  --coral: #e8755b;
+  --line: #dce3d8;
+  --shadow: 0 24px 70px rgba(47, 67, 49, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 48px 20px;
+  color: var(--ink);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  background-color: var(--canvas);
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.58) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(215, 226, 211, 0.52) 25%, transparent 25%);
+  background-position: 0 0, 18px 18px;
+  background-size: 36px 36px;
+}
+
+.container {
+  width: min(100%, 940px);
+  min-height: 620px;
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 68px);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.container::before {
+  content: '';
+  width: 190px;
+  height: 190px;
+  position: absolute;
+  top: -95px;
+  right: 8%;
+  border: 26px solid rgba(232, 117, 91, 0.13);
+  border-radius: 50%;
+}
+
+h1,
+h3,
+p,
+input,
+button {
+  position: relative;
+}
+
+h1 {
+  max-width: 560px;
+  margin: 0 0 16px;
+  color: var(--sage-dark);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.container > h3:first-of-type {
+  max-width: 550px;
+  margin: 0 0 42px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+input[type='file'] {
+  display: block;
+  width: min(100%, 520px);
+  min-height: 68px;
+  padding: 12px;
+  border: 1px dashed #b7c7b6;
+  border-radius: 6px;
+  color: var(--muted);
+  font: inherit;
+  background: #f4f7f1;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+input[type='file']:hover,
+input[type='file']:focus-within {
+  border-color: var(--sage);
+  background: #eef4eb;
+}
+
+input[type='file']::file-selector-button {
+  margin-right: 14px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  background: var(--sage);
+  cursor: pointer;
+}
+
+button {
+  margin: 18px 0 42px;
+  padding: 15px 28px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: var(--coral);
+  box-shadow: 0 8px 18px rgba(232, 117, 91, 0.24);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  background: #d9634d;
+  box-shadow: 0 11px 24px rgba(232, 117, 91, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#uploaded-img {
+  display: block;
+  width: min(100%, 520px);
+  max-height: 330px;
+  margin: 0 0 36px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(37, 48, 43, 0.16);
+}
+
+#uploaded-img[src=''] {
+  display: none;
+}
+
+#meal-name {
+  margin: 0 0 10px;
+  color: var(--sage-dark);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  line-height: 1.1;
+}
+
+#description,
+#calories-count,
+#grams {
+  max-width: 650px;
+  margin: 0;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+#calories-count {
+  color: var(--coral);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+#grams {
+  border-bottom: 0;
+  color: var(--sage-dark);
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 14px;
+  }
+
+  .container {
+    min-height: calc(100vh - 28px);
+    padding: 34px 24px;
+  }
+
+  .container::before {
+    right: -72px;
+  }
+
+  .container > h3:first-of-type {
+    margin-bottom: 30px;
+  }
+
+  input[type='file'] {
+    min-height: 92px;
+    line-height: 1.5;
+  }
+
+  input[type='file']::file-selector-button {
+    display: block;
+    margin: 0 0 9px;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+/*Spinner*/
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #000000;       /* Light grey background ring */
+  border-top: 5px solid #3498db;   /* Blue spinning indicator */
+  border-radius: 50%;              /* Makes the square a circle */
+  animation: spin 1s linear infinite; /* Keeps it spinning forever */
+}
+
+.hidden {
+  display: none;
+}
+
+/* The rotation logic */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
